@@ -1,0 +1,22 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.categoryCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categoryCardTitle {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.categoryCardImage {
+    aspect-ratio: 2 / 1;
+    width: 80%;
+    object-fit: cover;
+    cursor: pointer;
+}

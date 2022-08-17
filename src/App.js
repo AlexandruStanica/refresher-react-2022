@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Cart from "./pages/Cart/Cart";
+import Category from "./pages/Category/Category";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Product from "./pages/Product/Product";
+import { UserContext } from "./contexts/UserContext";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { user } = useContext(UserContext);
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            axios
+                .get("https://fakestoreapi.com/products")
+                .then(res => setProducts(res.data));
+        }
+    }, [user]);
+
+    console.log({ products, user });
+
+    return (
+        <div className="app">
+            <Router>
+                {user ? (
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route
+                            path="/products/:categoryName"
+                            element={<Category products={products} />}
+                        />
+                        <Route
+                            path="/products/:categoryName/:productId"
+                            element={<Product />}
+                        />
+                    </Routes>
+                ) : (
+                    <Routes>
+                        <Route path="/" element={<Login />} />
+                    </Routes>
+                )}
+            </Router>
+        </div>
+    );
 }
 
 export default App;
