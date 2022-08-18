@@ -1,9 +1,9 @@
 .home {
-    min-height: 100vh;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    align-items: center;
+  min-height: 95vh;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
 }

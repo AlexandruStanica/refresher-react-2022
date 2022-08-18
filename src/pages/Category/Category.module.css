@@ -1,18 +1,18 @@
 .category {
-    min-height: 100vh;
-    padding: 1rem;
+  min-height: 95vh;
+  padding: 1rem;
 }
 
 .categoryContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .categoryTitle {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }

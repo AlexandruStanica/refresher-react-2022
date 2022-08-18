@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Cart from "./pages/Cart/Cart";
@@ -8,45 +8,49 @@ import Login from "./pages/Login/Login";
 import Product from "./pages/Product/Product";
 import { UserContext } from "./contexts/UserContext";
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-    const { user } = useContext(UserContext);
-    const [products, setProducts] = useState(null);
+  const { user } = useContext(UserContext);
+  const [products, setProducts] = useState(null);
 
-    useEffect(() => {
-        if (user) {
-            axios
-                .get("https://fakestoreapi.com/products")
-                .then(res => setProducts(res.data));
-        }
-    }, [user]);
+  useEffect(() => {
+    if (user) {
+      axios
+        .get("https://fakestoreapi.com/products")
+        .then((res) => setProducts(res.data));
+    }
+  }, [user]);
 
-    console.log({ products, user });
+  console.log({ products, user });
 
-    return (
-        <div className="app">
-            <Router>
-                {user ? (
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/cart" element={<Cart />} />
-                        <Route
-                            path="/products/:categoryName"
-                            element={<Category products={products} />}
-                        />
-                        <Route
-                            path="/products/:categoryName/:productId"
-                            element={<Product />}
-                        />
-                    </Routes>
-                ) : (
-                    <Routes>
-                        <Route path="/" element={<Login />} />
-                    </Routes>
-                )}
-            </Router>
-        </div>
-    );
+  return (
+    <div className="app">
+      <Router>
+        {user ? (
+          <Fragment>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route
+                path="/products/:categoryName"
+                element={<Category products={products} />}
+              />
+              <Route
+                path="/products/:categoryName/:productId"
+                element={<Product />}
+              />
+            </Routes>
+          </Fragment>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        )}
+      </Router>
+    </div>
+  );
 }
 
 export default App;
