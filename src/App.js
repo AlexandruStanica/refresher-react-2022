@@ -11,7 +11,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  const { user } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,11 @@ function App() {
         .then((res) => setProducts(res.data));
     }
   }, [user]);
+
+  useEffect(() => {
+    login();
+    //TODO: button de log-out
+  }, []);
 
   console.log({ products, user });
 

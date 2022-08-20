@@ -16,8 +16,8 @@
   justify-content: space-between;
 
   align-items: center;
-  width: 40vw;
-  height: 50vh;
+  max-width: 40vw;
+  min-height: 50vh;
 }
 
 .title {
@@ -25,14 +25,16 @@
 }
 
 .photo {
-  width: 20vw;
+  max-width: 20vw;
   height: 50vh;
   object-fit: cover;
   border-radius: 15px;
 }
 
 .price {
-  text-align: end;
+  font-size: 1.5rem;
+  color: goldenrod;
+  font-weight: 600;
 }
 
 .btn {
@@ -45,6 +47,7 @@
   background-color: green;
   color: #fff;
   text-align: center;
+  font-weight: 600;
 }
 
 .btn:hover {

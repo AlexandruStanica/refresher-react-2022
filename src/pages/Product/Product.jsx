@@ -1,11 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext, constants } from "../../contexts/CartContext";
 import styles from "./Product.module.css";
 
 function Product() {
   const { productId } = useParams();
   const [productInfo, setProductInfo] = useState(null);
+  const { dispatch } = useContext(CartContext);
 
   useEffect(() => {
     axios
@@ -13,7 +15,6 @@ function Product() {
       .then((res) => setProductInfo(res.data));
   }, []);
 
-  console.log(productInfo);
   return (
     <div>
       {productInfo == null ? (
@@ -24,8 +25,15 @@ function Product() {
           <div className={styles.info}>
             <h2 className={styles.title}>{productInfo.title}</h2>
             <p className={styles.description}>{productInfo.description}</p>
-            <p className={styles.price}>{productInfo.price}$</p>
-            <div className={styles.btn}>Add Product</div>
+            <p className={styles.price}>${productInfo.price}</p>
+            <div
+              className={styles.btn}
+              onClick={() =>
+                dispatch({ type: constants.ADD_TO_CART, payload: productInfo })
+              }
+            >
+              Add Product
+            </div>
           </div>
         </div>
       )}

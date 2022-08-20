@@ -9,6 +9,9 @@
   gap: 2rem;
   justify-items: center;
   align-items: center;
+
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .categoryTitle {

@@ -1,30 +1,32 @@
 .productCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background: #777;
-    padding: 2rem;
-    border-radius: 1rem;
-    min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #777;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: 500px;
+  max-width: 650px;
 }
 
 .productCardImage {
-    aspect-ratio: 2 / 1;
-    width: 80%;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 0.5rem;
+  aspect-ratio: 2 / 1;
+  width: 80%;
+
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 .productCardTitle {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
 .productCardPrice {
-    font-size: 2rem;
-    margin-top: 1rem;
-    color: goldenrod;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: goldenrod;
 }
