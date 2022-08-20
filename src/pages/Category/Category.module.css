@@ -6,9 +6,10 @@
 .categoryContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
-  gap: 2rem;
   justify-items: center;
   align-items: center;
+
+  gap: 2rem;
 
   max-width: 1400px;
   margin: 0 auto;

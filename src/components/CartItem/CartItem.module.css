@@ -1,0 +1,42 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #ccc;
+
+  max-width: 60rem;
+  width: 90%;
+
+  gap: 2rem;
+
+  padding: 2rem;
+
+  border-radius: 1rem;
+}
+
+.img {
+  height: 150px;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.price {
+  color: goldenrod;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: crimson;
+}

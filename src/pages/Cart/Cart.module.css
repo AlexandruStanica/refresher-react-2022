@@ -1,0 +1,35 @@
+.cart {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.button {
+  max-width: 20rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: rgb(6, 120, 6);
+  cursor: pointer;
+}
